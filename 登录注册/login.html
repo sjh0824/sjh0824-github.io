@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <title>用户登陆</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="./css/init.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/login.css"/>
+</head>
+<body>
+<!--<div id="bg"><img src="./Images/wallpaper.jpg" /></div>-->
+<div id="login">
+    <div class="logo"><a href="../index.html">视频播放器</a></div>
+    <div class="box">
+        <div class="pics">
+            <div class="tit">发现更多精彩!</div>
+            <div class="pic1"><a href="#"><img src="./upload/log1.jpg"/></a></div>
+            <div class="pic2"><a href="#"><img src="./upload/log2.jpg"/></a></div>
+            <div class="pic3"><a href="#"><img src="./upload/log3.jpg"/></a></div>
+            <div class="pic4"><a href="#"><img src="./upload/log4.jpg"/></a></div>
+        </div>
+        <div class="logform">
+            <form method="post">
+                <h2>用户登陆</h2>
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <input type="text" name="name" class="name" placeholder="微博账号/QQ号码/电子邮箱"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="password" name="password" class="pass" placeholder="密码"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" class="sub" value="登 陆"/>
+                        </td>
+                        <td align="center">
+                            <input type="checkbox" class="chk" name="check"/>下次自动登陆
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://graph.qq.com/oauth/show?which=Login&display=pc&client_id=101019034&response_type=code&scope=get_info%2Cget_user_info&redirect_uri=https%3A%2F%2Fpassport.weibo.com%2Fothersitebind%2Fbind%3Fsite%3Dqq%26state%3DCODE-xd-1AY9v9-17veC6-sCO2b5qOztqqib18f757e%26bentry%3Dminiblog%26wl%3D&display=" class="qqlog"></a>
+                        </td>
+                        <td>
+                            <a href="http://weibo.com/" class="sinalog"></a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="reg">
+                    <a href="javascript:void(0)">忘记密码？</a>|
+                    <a href="register.html">注册新账号</a>|
+                    <a href="javascript:void(0)">意见反聩</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="tips" id="tips"></div>
+<!-- 底部 -->
+<div id="footer">
+    <div class="copy">
+        <p>网站开发</p>
+
+        <p>版权所有 视频播放器 www.video.com</p>
+    </div>
+</div>
+</body>
+</html>
+<script src="../js/jquery-1.9.0.min.js"></script>
+<script src="login.js"></script>

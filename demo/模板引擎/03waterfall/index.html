@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Plugin</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+			font-family: '微软雅黑';
+		}
+
+		.wrapper {
+			padding: 50px;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 300px;
+		}
+
+		.items {
+			position: relative;
+		}
+
+		.item {
+			width: 228px;
+			position: absolute;
+		}
+
+		.tips {
+			width: 280px;
+			height: 40px;
+			margin: 30px auto 0;
+			text-align: center;
+			line-height: 40px;
+			background-color: #CCC;
+			border-radius: 6px;
+			font-size: 24px;
+			cursor: pointer;
+		}
+
+		.tips.loading {
+			background-color: transparent;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="items">
+		</div>
+		<p class="tips loading">正在加载...</p>
+	</div>
+	<!-- 引入库 -->
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/template-native.js"></script>
+	<script src="./js/jquery.waterFall.js"></script>
+	<script>
+		// 定义取数据的方法
+		function getData(page) {
+			$.ajax({
+				url: './data.php',
+				type: 'post',
+				data: {page: page},
+				beforeSend: function () {
+					// Loading状态
+					$('p.tips').text('正在加载...')
+					.addClass('loading');
+				},
+				success: function (info) {
+					console.log(info);
+
+					// 调用模板引擎
+					var html = template('tpl', info);
+
+					// console.log(html);
+
+					// 追加DOM中
+					$('.items').append(html)
+					// 瀑布流
+					.waterFall();
+
+					// $('.items').waterFall();
+
+					// 缓存页码
+					$('p.tips').attr('data-page', info.page);
+
+				},
+				complete: function () {
+					$('p.tips').text('继续加载')
+					.removeClass('loading');
+				}
+			});
+		}
+
+		// 取出第一页
+		getData(1);
+
+		// 点击加载更多
+		$('p.tips').on('click', function () {
+			// 获取页码
+			var page = $(this).attr('data-page');
+
+			// 禁止重复提交
+			if($(this).hasClass('loading')) return;
+
+			// 获取数据
+			getData(page);
+		});
+
+
+		// 滚动加载
+		$(window).on('scroll', function () {
+			var offsetTop = $('.items').offset().top;
+			var height = $('.items').height();
+			var scrollTop = $(this).scrollTop();
+			var winHeight = $(this).height();
+
+			var offset = offsetTop + height - scrollTop - winHeight;
+
+			if(offset <= 200 && !$('p.tips').is('.loading')) {
+				var page = $('p.tips').attr('data-page');
+				getData(page);
+			}
+
+		});
+	</script>
+	<!-- 模板 -->
+	<!-- 抽离了模板 -->
+	<script type="text/template" id="tpl">
+		<% for(var i=0; i < items.length; i++) { %>
+		<div class="item">
+			<img src="<%= items[i].path %>">
+			<p><%= items[i].text %></p>
+		</div>
+		<% } %>
+	</script>
+</body>
+</html>

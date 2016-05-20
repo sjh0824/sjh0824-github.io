@@ -1,0 +1,307 @@
+@charset "utf-8";
+/* 全局样式 */
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body, ul, dl, dd, dt, ol, li, p, h1, h2, h3, h4, h5, h6, textarea, form, select, fieldset, table, td, div, input {
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: none
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 14px;
+    font-weight: normal
+}
+
+i, em {
+    font-style: normal !important;
+}
+
+body > div, form > div, body > section {
+    margin: 0 auto
+}
+
+div {
+    text-align: left
+}
+
+a img {
+    border: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+select, input, textarea {
+    outline: none
+}
+
+body {
+    color: #494949;
+    font: 12px Arial, "微软雅黑";
+    min-width: 320px;
+    margin: 0 auto;
+    background: #efefef;
+}
+
+ul, ol, li {
+    list-style-type: none;
+    vertical-align: 0
+}
+
+a {
+    outline-style: none;
+    color: #494949;
+    text-decoration: none
+}
+
+a, area {
+    blr: expression(this.onFocus=this.blur())
+}
+
+:focus {
+    -moz-outline-style: none
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.hidden, .hide {
+    display: none
+}
+
+.block, .show {
+    display: block
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.fline {
+    float: left;
+    display: inline
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    height: 0;
+    display: block;
+    visibility: hidden
+}
+
+.chgBtn {
+    cursor: pointer
+}
+
+.fwr {
+    font-family: "微软雅黑"
+}
+
+.far {
+    font-family: Arial
+}
+
+.fb {
+    font-weight: bold
+}
+
+.auto {
+    margin-left: auto !important;
+    margin-right: auto !important
+}
+
+.cor_red {
+    color: #ff0000
+}
+
+.cor_org {
+    color: #FF4400;
+}
+
+.cor_bs, .cor_bs:hover {
+    color: #fff
+}
+
+.autoImg img {
+    height: auto;
+    width: 100%;
+    display: block;
+}
+
+.button {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    vertical-align: baseline;
+    margin: 0 2px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: 0.25em 0.6em 0.3em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}
+
+.red {
+    color: #faddde;
+    border: solid 1px #980c10;
+    background: #d81b21;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#A51715));
+    background: -moz-linear-gradient(top, #ed1c24, #A51715);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed1c24', endColorstr='#aa1317');
+}
+
+.red:hover {
+    background: #b61318;
+    background: -webkit-gradient(linear, left top, left bottom, from(#c9151b), to(#a11115));
+    background: -moz-linear-gradient(top, #c9151b, #a11115);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9151b', endColorstr='#a11115');
+    color: #fff;
+}
+
+.red:active {
+    color: #de898c;
+    background: -webkit-gradient(linear, left top, left bottom, from(#aa1317), to(#ed1c24));
+    background: -moz-linear-gradient(top, #aa1317, #ed1c24);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#aa1317', endColorstr='#ed1c24');
+}
+
+.cor_bs, .cor_bs:hover {
+    color: #ffffff;
+}
+
+.keBody {
+    background: url(../images/bodyBg.jpg) repeat #333;
+}
+
+.keTitle {
+    height: 100px;
+    line-height: 100px;
+    font-size: 30px;
+    font-family: '微软雅黑';
+    color: #FFF;
+    text-align: center;
+    background: url(../images/bodyBg3.jpg) repeat-x bottom left;
+    font-weight: normal;
+    overflow: hidden
+}
+
+.kePublic {
+    background: #FFF;
+    padding: 50px;
+}
+
+.keBottom {
+    color: #FFF;
+    padding-top: 25px;
+    line-height: 28px;
+    text-align: center;
+    font-family: '微软雅黑';
+    background: url(../images/bodyBg2.jpg) repeat-x top left;
+    padding-bottom: 25px
+}
+
+.keTxtP {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.keUrl {
+    color: #FFF;
+    font-size: 30px;
+}
+
+.keUrl:hover {
+    text-decoration: underline;
+    color: #FFF;
+}
+
+.mKeBanner, .mKeBanner div {
+    text-align: center;
+}
+
+/*弹出层 CSS*/
+.gb_resLay {
+    background: #FFFFFF;
+    height: 100px;
+    width: 330px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 70px;
+    position: absolute;
+    right: 100px;
+}
+
+.gb_resItms {
+    margin: 0px 4%;
+}
+
+.gb_resItms li {
+    text-align: center;
+    float: left;
+    width: 50px;
+    padding: 15px 0;
+}
+
+.gb_resItms li img {
+    height: auto;
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .gb_resItms li {
+        width: 16.66%;
+    }
+
+    .gb_resLay {
+        height: 100px;
+        width: 54%;
+        position: absolute;
+        right: 0;
+    }
+
+    .gb_resItms li img {
+        height: auto;
+        width: 30px;
+        margin-bottom: 10px;
+    }
+}
+/*.bdsharebuttonbox a {*/
+    /*width: 60px !important;*/
+    /*height: 60px !important;*/
+    /*margin: 0 auto 10px !important;*/
+    /*float: none !important;*/
+    /*padding: 0 !important;*/
+    /*display: block;*/
+/*}*/
+
+.bdsharebuttonbox  img {
+    width: 40px;
+    height: 40px;
+}
+.bd_weixin_popup .bd_weixin_popup_foot {
+    position: relative;
+    top: -12px;
+}

@@ -1,0 +1,21 @@
+ <img src="images/1.jpg" alt="" title="湖水"/>
+                    <img src="images/2.jpg" alt="" title="小船"/>
+                    <img src="images/8.jpg" alt="" title="花"/>
+                    <img src="images/命名规范1366.jpg" alt="" title="单词"/>
+                    <img src="images/48.jpg" alt="" title="美女"/>
+                    <img src="images/60.jpg" alt="" title="励志"/>
+
+
+  <div class="listy skyblue">
+                            <a rel="video/fun.mp4" class="listname" title="fun.mp4">fun.mp4</a>
+                            <span class="span1 icon icon-trash" title="删除"></span>
+                        </div>
+                        <div class="listy">
+                            <a rel="video/star.mp4" class="listname" title="star.mp4">star.mp4</a>
+                            <span class="span1 icon icon-trash" title="删除"></span>
+                        </div>
+                        <div class="listy">
+                            <a rel="video/miss.mp4" class="listname" title="miss.mp4">miss.mp4</a>
+                            <span class="span1 icon icon-trash" title="删除"></span>
+                        </div>
+                        <div id="button" class="button"> &gt; </div>

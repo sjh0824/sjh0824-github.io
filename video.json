@@ -1,0 +1,15 @@
+{
+  "video":[
+    {
+    "rel": "video/fun.mp4",
+    "title": "fun.mp4"
+  },
+  {
+    "rel": "video/star.mp4",
+    "title": "star.mp4"
+  },
+  {
+    "rel": "video/miss.mp4",
+    "title": "miss.mp4"
+  }]
+}

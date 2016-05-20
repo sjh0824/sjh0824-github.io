@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <title>注册用户</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="./css/init.css" />
+    <link rel="stylesheet" type="text/css" href="./css/register.css" />
+</head>
+<body>
+    <div id="bg"><img src="./Images/wallpaper.jpg" /></div>
+    <div id="register">
+        <div class="logo"><a href="../index.html">视频播放器</a></div>
+        <div class="box">
+            <div class="regform">
+                <h2>普通注册</h2>
+                <form action="" method="post">
+                    <ul>
+                        <li>
+                            <label for="">用户名</label>
+                            <input type="text" name="name" class="name">
+                        </li>
+                        <li>
+                            <label for="">请设置密码</label>
+                            <input type="password" name="pass" class="pass">
+                        </li>
+                        <li>
+                            <label for="">请确认密码</label>
+                            <input type="password" name="repass" class="repass">
+                        </li>
+                        <li>
+                            <label for="">验证手机</label>
+                            <input type="text" name="mobile" class="mobile">
+                        </li>
+                        <li>
+                            <label for="">短信验证码</label>
+                            <input type="text" name="code" class="code">
+                            <input type="button" value="获取验证码" class="verify">
+                        </li>
+                        <li>
+                            <label for=""></label>
+                            <input type="button" class="submit" value="立即注册">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!-- 提示信息 -->
+            <div class="tips">
+                <p>用户名不能为空</p>
+            </div>
+            <div class="quickreg">
+                <h2>快速注册</h2>
+                <div class="apps">
+                    <a class="qq" href="https://graph.qq.com/oauth/show?which=Login&display=pc&client_id=101019034&response_type=code&scope=get_info%2Cget_user_info&redirect_uri=https%3A%2F%2Fpassport.weibo.com%2Fothersitebind%2Fbind%3Fsite%3Dqq%26state%3DCODE-xd-1AY9ti-17veC6-ScXUfLG9hyW1tY07c4413%26bentry%3Dminiblog%26wl%3D&display="></a>
+                    <a class="sina" href="http://weibo.com/"></a>
+                    <a class="taobao" href="https://login.taobao.com/member/login.jhtml?spm=a21bo.50862.754894437.1.PcGVvF&f=top&redirectURL=https%3A%2F%2Fwww.taobao.com%2F"></a>
+                    <a class="tent" href="http://t.qq.com/"></a>
+                    <a class="douban" href="https://accounts.douban.com/login?uid=&alias=&redir=https%3A%2F%2Fwww.douban.com%2F&source=index_nav&error=1001"></a>
+                </div>
+                <div class="nowlog"><a href="./login.html">已有账号，现在去登陆！</a></div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div id="footer">
+        <div class="copy">
+            <p>网站开发</p>
+            <p>版权所有 视频播放器 www.video.com</p>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../js/jquery-1.9.0.min.js"></script>
+<script src="register.js"></script>

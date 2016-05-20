@@ -1,0 +1,849 @@
+﻿body, html {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'microsoft yahei', sans-serif;
+    background-color: #ccc;
+    /*background-image: url("../images/1.jpg");*/
+}
+
+a {
+    text-decoration: none;
+}
+
+/*定义字符集*/
+
+@font-face {
+    font-family: 'control';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.icon {
+    font-family: "control";
+}
+
+/*字符图标*/
+.icon-stop::before {
+    content: "\e074";
+}
+
+.icon-play::before {
+    content: "\e072";
+}
+
+.icon-pause::before {
+    content: "\e073";
+}
+
+.icon-volume-off::before {
+    content: "\e036";
+}
+
+.icon-volume-down::before {
+    content: "\e037";
+}
+
+.icon-volume-up::before {
+    content: "\e038";
+}
+
+.icon-expand::before {
+    content: "\e140";
+}
+
+.icon-contract::before {
+    content: "\e097";
+}
+
+.icon-upload::before {
+    content: "\e118";
+}
+
+.icon-backward::before {
+    content: "\e069";
+}
+
+.icon-forward::before {
+    content: "\e077";
+}
+
+.icon-list::before {
+    content: "\e056";
+}
+
+.icon-menu::before {
+    content: "\e236";
+}
+
+.icon-fast-backward::before {
+    content: "\e071";
+}
+
+.icon-fast-forward::before {
+    content: "\e075";
+}
+
+.icon-trash::before {
+    content: "\e020";
+}
+
+.icon-eye-open::before {
+    content: "\e105";
+}
+
+.icon-eye-close::before {
+    content: "\e106";
+}
+.icon-share::before {
+    content: "\e102";
+}
+
+/*样式*/
+figcaption {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+}
+figcaption a {
+    margin-left: 10px;
+    color: red;
+}
+figcaption a:hover {
+    color: blue;
+}
+figure {
+    margin: 0;
+}
+.large {
+    width: 750px;
+    height: 430px;
+    margin: 0 auto;
+    background-color: mediumblue;
+}
+
+.player {
+    width: 100%;
+    height: 80%;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: url(../images/loading.gif) center no-repeat;
+    position: relative;
+    background: #000;
+}
+
+.header-title {
+    width: 100%;
+    height: 7%;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.player > .videos {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    /*background: #fff;*/
+    overflow: hidden;
+}
+
+.player > .videos > .video {
+    width: 100%;
+    height: 100%;
+}
+
+/*播放列表*/
+.player > .videos > .list-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 148px;
+    height: 100%;
+    display: none;
+    z-index: 3;
+}
+
+.list-1 > .list {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+
+    background: #eee;
+    text-align: center;
+    overflow: scroll;
+}
+
+.list > .listy {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    margin-bottom: 4px;
+}
+
+.list > .listy > .listname {
+    display: block;
+    width: 73%;
+    height: 20px;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+    font-size: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+    cursor: default;
+}
+
+.list > .listy > .span1 {
+    float: right;
+    cursor: pointer;
+    font-size: 14px;
+    display: none;
+}
+
+.listy:hover {
+    background-color: pink;
+}
+
+.listy:hover .span1 {
+    display: block;
+    color: red;
+}
+
+.listy .span1:hover {
+    font-size: 16px;
+}
+
+.list-1 > .button {
+    width: 12px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    right: 135px;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.skyblue {
+    background-color: skyblue;
+}
+
+.controls {
+    width: 100%;
+    height: 13%;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    opacity: 1;
+}
+
+/*视频进度*/
+.controls > .progressBar {
+    width: 100%;
+    height: 7px;
+    margin-top: 5px;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.controls > .progressBar > span {
+    position: absolute;
+    top: -4px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.controls > .progressBar > span:first-child {
+    left: 10px;
+}
+
+.controls > .progressBar > span:last-child {
+    right: 10px;
+}
+
+.controls > .progressBar > .progress {
+    width: 100%;
+    height: 7px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #555;
+    position: relative;
+}
+
+/*视频进度条*/
+.progress > .line {
+    display: block;
+    width: 0;
+    height: 100%;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+/**/
+.progress > .bar {
+    width: 100%;
+    height: 7px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/*菜单*/
+.controls > .menu {
+    position: relative;
+}
+
+.controls > .menu > span {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    padding-left: 2px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    cursor: default;
+}
+
+.controls > .menu > span:hover {
+    box-shadow: 0px 0px 2px 1px #000;
+}
+
+.menu > div {
+    width: 100px;
+    height: 90px;
+    position: absolute;
+    top: 40px;
+    left: -20px;
+    text-align: center;
+    border: 1px solid red;
+    background: pink;
+    color: #000;
+    font-size: 16px;
+}
+
+.disn {
+    display: none;
+}
+
+.disb {
+    display: block;
+}
+
+.menu > div > span {
+    display: block;
+    border-bottom: 1px solid blue;
+    cursor: pointer;
+}
+
+.menu > div > span:hover {
+    color: red;
+}
+
+.menu > section {
+    width: 120px;
+    height: 50px;
+    position: absolute;
+    top: 30px;
+    left: 85px;
+    text-align: center;
+    border: 1px solid red;
+    background: pink;
+    color: #000;
+    font-size: 16px;
+}
+
+.menu > section > a {
+    display: block;
+    font-size: 16px;
+    border-bottom: 1px solid blue;
+    cursor: pointer;
+}
+
+.menu > section > a:hover {
+    color: red;
+}
+
+/*改变视频的背景色*/
+section {
+    width: 110px;
+    height: 70px;
+    border: 1px solid red;
+    position: absolute;
+    left: 90px;
+    top: 55px;
+}
+
+section > span {
+    width: 30px;
+    height: 30px;
+    display: block;
+    float: left;
+    font-size: 0;
+    margin-top: 4px;
+    margin-left: 5px;
+}
+
+section > span:nth-child(1) {
+    background-color: red;
+}
+
+section > span:nth-child(2) {
+    background-color: blue;
+}
+
+section > span:nth-child(3) {
+    background-color: pink;
+}
+
+section > span:nth-child(4) {
+    background-color: black;
+}
+
+section > span:nth-child(5) {
+    background-color: yellow;
+}
+
+section > span:nth-child(6) {
+    background-color: green;
+}
+
+/*改变浏览器的背景图*/
+
+#borwer {
+    width: 110px;
+    height: 70px;
+    border: 1px solid red;
+    position: absolute;
+    left: 90px;
+    top: 80px;
+}
+
+#borwer > img {
+    width: 30px;
+    height: 30px;
+    font-size: 0;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+/*显示url框*/
+.url {
+    width: 400px;
+    height: 200px;
+    /*border: 1px solid red;*/
+    background: rgba(255, 255, 255, .8);
+    position: absolute;
+    top: -650%;
+    left: 20%;
+    border-radius: 10px;
+    display: none;
+}
+
+.url > .title {
+    width: 100%;
+    height: 20px;
+    background-color: blue;
+    color: #fff;
+    line-height: 20px;
+}
+
+.url > .title > .left {
+    font-size: 14px;
+    float: left;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.url > .title > .right {
+    display: block;
+    width: 30px;
+    height: 20px;
+    background-color: red;
+    text-align: center;
+    font-size: 26px;
+    float: right;
+    cursor: pointer;
+}
+
+.url > .title > .right:hover {
+    background-color: brown;
+}
+
+.url > .content {
+    font-size: 14px;
+    margin-left: 20px;
+    line-height: 20px;
+}
+
+.url > .content > .content-top {
+    margin-top: 15px;
+}
+
+.url > .content > .content-top > span {
+    display: block;
+}
+
+.url > .content > .content-con {
+    margin-top: 5px;
+}
+
+.url > .content > .content-con > span {
+    margin-right: 5px;
+}
+
+.url > .content > .content-con > input {
+    width: 300px;
+}
+
+.url > .content > .content-bottom {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.url > .content > .content-bottom > span {
+    display: block;
+    margin-left: 25px;
+}
+
+.url > .url-bottom {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    font-size: 28px;
+}
+
+.url > .url-bottom > input {
+    width: 60px;
+    height: 28px;
+    color: blue;
+}
+
+.url > .url-bottom > input:hover {
+    box-shadow: 0 0 1px 1px skyblue;
+}
+
+/*时间*/
+.timer {
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    left: 60px;
+    top: 20px;
+    color: #FFF;
+    font-size: 14px;
+}
+
+/*视频播放/暂停*/
+.controls > .plays {
+    position: absolute;
+    width: 200px;
+    height: 34px;
+    margin-top: 6px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+.controls > .plays > span {
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    color: #FFF;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 1px;
+    padding: 2px;
+}
+
+.controls > .plays > span:hover {
+    box-shadow: 0px 0px 2px 1px #000;
+}
+
+/*视频音量*/
+.controls > .volume {
+    position: absolute;
+    width: 100px;
+    height: 6px;
+    margin-left: 450px;
+    margin-top: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.controls > .volume > span {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 20px;
+    padding-left: 2px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    left: 0;
+}
+
+.controls > .volume > .volumeBar {
+    width: 100px;
+    height: 100%;
+    background: #fff;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    position: absolute;
+    top: 7px;
+    left: 25px;
+}
+
+.controls > .volume > .volumeBar > .volumeInner {
+    width: 100%; /* 音量默认为100% */
+    height: 6px;
+    background: #2187e7;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+/*视频全屏*/
+.controls > .expand {
+    width: 160px;
+    position: absolute;
+    right: 6px;
+    top: 16px;
+}
+
+.controls > .expand > span {
+    display: block;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+    color: #FFF;
+    float: left;
+    margin-left: 6px;
+    cursor: default;
+}
+
+.controls > .expand > span:hover {
+    box-shadow: 0px 0px 2px 1px #000;
+}
+
+.pure > input {
+    visibility: hidden;
+}
+
+/*弹幕*/
+.barrage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.screen .s_dm .s_close:hover {
+    color: #fff;
+}
+
+.screen .s_dm .s_show {
+    position: relative;
+    z-index: 2;
+}
+
+.screen .s_dm .s_show div {
+    line-height: 36px;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.screen .send {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    z-index: 5;
+    opacity: 0.5;
+}
+
+.screen .send .s_con {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+
+}
+
+.screen .send .s_con .s_txt {
+    width: 450px;
+    height: 38px;
+    border: 0;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    padding-left: 12px;
+    border-radius: 3px 0 0 3px;
+    outline: none;
+    cursor: default;
+}
+
+.screen .send .s_con .s_btn {
+    width: 100px;
+    height: 40px;
+    background: #088;
+    border: 0;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    color: #000;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+    outline: none;
+}
+
+.screen .send .s_con .s_btn:hover {
+    background: #006c6c;
+}
+
+@media screen and ( max-width: 768px ) {
+    figure {
+        margin: 0;
+    }
+
+    .large {
+        width: 100%;
+        height: 300px;
+    }
+
+    .header-title {
+        height: 30px;
+    }
+
+    .player {
+        height: 220px;
+    }
+    #menu {
+        font-size: 14px;
+    }
+    .controls {
+        height: 50px;
+    }
+    .controls .plays span {
+        font-size: 14px;
+    }
+
+    .volume {
+        display: none;
+    }
+
+    .player .videos .list-1 {
+        width: 100px;
+    }
+
+    .list-1 > .button {
+        right: 88px;
+    }
+
+    .url {
+        width: 300px;
+        height: 150px;
+        top: -350%;
+        left: 20%;
+    }
+
+    .url > .title > .left {
+        font-size: 12px;
+        margin-top: -2px;
+    }
+
+    .url > .title > .right {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+
+    .url > .content {
+        font-size: 12px;
+        margin: 0;
+        margin-top: -10px;
+    }
+
+    .url > .content > .content-con > input {
+        width: 200px;
+    }
+
+    .url > .content > .content-bottom {
+        margin-top: 0;
+    }
+
+    .url > .content > .content-bottom > span {
+        margin-left: 0;
+        font-size: 8px;
+    }
+
+    .url > .url-bottom {
+        position: absolute;
+        right: 5px;
+        bottom: 3px;
+        font-size: 12px;
+    }
+
+    .url > .url-bottom > input {
+        width: 40px;
+        height: 20px;
+        color: blue;
+    }
+    .controls > .expand {
+        width: 150px;
+    }
+    .controls > .expand > span {
+        font-size: 14px;
+        margin-left: 5px;
+        right: 0;
+    }
+}
+
+@media screen and ( max-width: 560px ) {
+    .controls .timer {
+        display: none;
+    }
+     .button {
+        display: none;
+    }
+}
+
+
+
+
+
+
+

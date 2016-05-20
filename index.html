@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <!-- 只会在移动端识别 视口 当前的宽度等于设备的宽度，默认的缩放比1.0，不予许用户自行缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>HTML5视频播放器</title>
+    <!--
+    html5shiv 是IE9一下的浏览器支持html5标签
+    respond 在IE9一下不支持media query的时候让它能支持 我们的媒体查询
+    注意：：：：：以http形式打开预览
+    cdn 资源加速引擎  由于是在本地开发是不是应用本地的文件
+    -->
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv/html5shiv.min.js"></script>
+    <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+    <!--<script src="js/template-native.js"></script>-->
+    <script src="js/underscore-min.js"></script>
+
+    <!--自己的css样式-->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+<figure>
+    <figcaption>视频播放器<a href="./主界面/index.html">返回主界面</a></figcaption>
+    <div class="large">
+        <div class="header-title">star.mp4</div>
+        <div class="player">
+            <div class="videos" id="player">
+                <video class="video" src="video/star.mp4">
+                    <source src="video/star.mp4"/>
+                    <source src="video/miss.mp4"/>
+                </video>
+                <!--弹幕-->
+                <div class="barrage">
+
+                    <!--screen start-->
+                    <div class="screen">
+                        <!--s_dm start-->
+                        <div class="s_dm">
+                            <!--<a href="#" class="s_close icon icon-eye-close"></a>-->
+                            <div class="mask"></div>
+                            <div class="s_show">
+
+                            </div>
+                        </div>
+                        <!--end s_dm-->
+                        <!--send start-->
+                        <div class="send">
+                            <div class="s_con">
+                                <!--两个元素同时使用时，不加回车可以避免两者间的空隙出现-->
+                                <input type="text" class="s_txt"/><input type="button" class="s_btn" value="发表评论"/>
+                            </div>
+                        </div>
+                        <!--end send-->
+                    </div>
+                    <!--end screen-->
+                </div>
+                <div class="list-1">
+                    <div class="list">
+                        播放列表
+                        <div class="listy skyblue">
+                            <a rel="video/star.mp4" class="listname" title="star.mp4">star.mp4</a>
+                            <span class="span1 icon icon-trash" title="删除"></span>
+                        </div>
+                        <div class="listy">
+                            <a rel="video/miss.mp4" class="listname" title="miss.mp4">miss.mp4</a>
+                            <span class="span1 icon icon-trash" title="删除"></span>
+                        </div>
+                    </div>
+                    <div id="button" class="button"> &gt; </div>
+                </div>
+
+            </div>
+            <!--控制栏-->
+            <div class="controls">
+                <!-- 进度条 -->
+                <div class="progressBar">
+                    <!--快退-->
+                    <span id="fate" class="icon icon-fast-backward"></span>
+                    <!--进度条-->
+                    <div class="progress">
+                        <a href="#" class="line"></a>
+                        <a href="#" class="bar"></a>
+                    </div>
+                    <!--快进-->
+                    <span id="speed" class="icon icon-fast-forward"></span>
+                </div>
+                <!--菜单-->
+                <div class="menu">
+                    <span id="menu" class="icon icon-menu" title="菜单"></span>
+
+                    <div id="menus" class="disn">
+                        <span id="game">游戏</span>
+                        <span id="bgc">改背景色</span>
+                        <span id="bgi">改背景图</span>
+                        <span id="url">打开URL</span>
+                    </div>
+                    <section id="msection" class="disn">
+                        <a href="game/捕鱼达人/index.html" id="game1" title="捕鱼达人">捕鱼达人</a>
+                        <a href="game/植物大战僵尸/Index.htm" id="game2" title="植物大战僵尸">植物大战僵尸</a>
+                    </section>
+
+                </div>
+                <!--改变视频的背景色-->
+                <section class="disn" id="section">
+                    <span title="红色"></span>
+                    <span title="蓝色"></span>
+                    <span title="粉色"></span>
+                    <span title="黑色"></span>
+                    <span title="黄色"></span>
+                    <span title="绿色"></span>
+                </section>
+                <!--改变浏览器的背景图-->
+                <div id="borwer" class="disn">
+                    <img src="images/1.jpg" alt="" title="湖水"/>
+                    <img src="images/2.jpg" alt="" title="小船"/>
+                    <img src="images/8.jpg" alt="" title="花"/>
+                    <img src="images/word.jpg" alt="" title="单词"/>
+                    <img src="images/48.jpg" alt="" title="美女"/>
+                    <img src="images/60.jpg" alt="" title="励志"/>
+                </div>
+                <!--显示URL框-->
+                <div class="url">
+                    <div class="title">
+                        <span class="left">打开URL</span>
+                        <span class="right">×</span>
+                    </div>
+                    <div class="content">
+                        <div class="content-top">
+                            <span>输入网络上您要播放的媒体文件的url或路径</span>
+                            <span>协议支持: http(支持.mp4\.ogv\.web)</span>
+                        </div>
+                        <div class="content-con">
+                            <span>打开url:</span>
+                            <input type="text" id="inp"/>
+                        </div>
+                        <div class="content-bottom">
+                            <span>例如: http://player.qq.com/test/example/fun.mp4</span>
+                            <span>例如: http://player.qq.com/test/example/fun.ogv</span>
+                        </div>
+                    </div>
+                    <div class="url-bottom">
+                        <input type="button" value="确定" id="btn1"/>
+                        <input type="button" value="取消" id="btn2"/>
+                    </div>
+
+                </div>
+
+                <!-- 时间 -->
+                <div class="timer">
+                    <span class="current">00:00:00</span> /
+                    <span class="total">00:00:00</span>
+                </div>
+
+                <!-- 播放/暂停 -->
+                <div class="plays">
+                    <span id="stop" class="icon icon-stop" title="停止"></span>
+                    <span id="prev" class="icon icon-backward" title="上一个文件"></span>
+                    <span id="play" class="icon icon-play" title="播放"></span>
+                    <span id="next" class="icon icon-forward" title="下一个文件"></span>
+                </div>
+
+                <!-- 音量 -->
+                <div class="volume">
+                    <span id="volume" class="icon icon-volume-up" title="音量"></span>
+
+                    <div class="volumeBar">
+                        <div class="volumeInner"></div>
+                    </div>
+                </div>
+                <!-- 文件导入 和 全屏 -->
+                <div class="expand">
+                    <span id="share" class="icon icon-share" title="分享"></span>
+                    <span id="click_screen" class="icon icon-eye-open" title="弹幕"></span>
+                    <span id="upload" class="icon icon-upload" title="打开文件"></span>
+                    <span id="maximize" class="icon icon-expand" title="最大化"></span>
+                    <span id="lists" class="icon icon-list" title="播放列表"></span>
+
+                </div>
+            </div>
+            <!--添加文件-->
+            <div class="pure">
+                <input type="file" id="file">
+            </div>
+        </div>
+        <!--分享-->
+        <div class="gb_resLay disn">
+            <div class="bdsharebuttonbox">
+                <ul class="gb_resItms">
+                    <li><img title="分享到微信" src="images/gbRes_2.png" class="bds_weixin" data-cmd="weixin"><br>微信好友</li>
+                    <li><img title="分享到QQ好友" src="images/gbRes_3.png" class="bds_sqq" data-cmd="sqq"><br>QQ好友</li>
+                    <li><img title="分享到QQ空间" src="images/gbRes_4.png" class="bds_qzone" data-cmd="qzone"><br>QQ空间</li>
+                    <li><img title="分享到腾讯微博" src="images/gbRes_5.png" class="bds_tqq" data-cmd="tqq"><br>腾讯微博</li>
+                    <li><img title="分享到新浪微博" src="images/gbRes_6.png" class="bds_tsina" data-cmd="tsina"><br>新浪微博</li>
+                    <li><img title="分享到人人网" src="images/gbRes_1.png" class="bds_renren" data-cmd="renren"><br>人人网</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</figure>
+<script src="js/jquery-1.9.0.min.js"></script>
+<!--<script src="js/index2.js"></script>-->
+<!--<script src="js/index3.js"></script>-->
+
+
+<script type="text/template" id="tpl-images">
+    <% _.each( model.item, function(item, i) { %>
+    <img src="<%= item.src %>" title="<%= item.title %>"/>
+    <% }); %>
+</script>
+<script type="text/template" id="tpl-video">
+    <% _.each( model.video, function(video, i) { %>
+    <div class="listy skyblue">
+        <a rel="<%= video[i].rel %>" class="listname" title="<%= video[i].title %>"><%= video[i].title %></a>
+        <span class="span1 icon icon-trash" title="删除"></span>
+    </div>
+    <% }); %>
+</script>
+
+<!--自己的js文件  我们基于上面两个框架-->
+<!--<script src="js/sjh.js"></script>-->
+<script src="js/jquery.hover3d.js"></script>
+<script src="js/share.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+</head>
+
+<title>经过美化后的html5网页视频播放器代码插件下载</title>
+
+<script src="http://www.100sucai.com/js/jquery.js"></script>
+
+<script src="http://www.100sucai.com/templates/default/js/common.js"></script>
+
+
+
+<script type="text/javascript">
+    $(function(){
+        var aid=$("#abc").text();
+        var url="/demo/"+aid+".html";
+        aid=$("#iframe").attr("src",url);
+    })
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5846068'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/stat.php%3Fid%3D5846068%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<style>
+
+    * {
+
+        margin:0px;
+
+        padding:0px;
+
+        outline:none;
+
+    }
+
+    body {
+
+        background:#eee;
+
+        overflow:hidden;
+
+    }
+
+
+
+    .cont {
+
+        width:100%;
+
+        position:absolute;
+
+        bottom:0;
+
+        height:100%;
+
+        border:0px solid #000;
+
+    }
+
+
+
+    #text {
+
+        position:absolute;
+
+        bottom:0px;
+
+        min-width:100%;
+
+        max-width:100%;
+
+        min-height:100%;
+
+        max-height:100%;
+
+        border:0px solid #00f;
+
+    }
+
+    #iframe {
+
+        height:100%;
+
+        width:100%;
+
+        background:#FFFFFF;
+
+    }
+
+</style>
+
+
+
+<body>
+
+<div class="cont">
+
+    <iframe id="iframe" width="100%" frameborder="0" name="mainFrame" style="border:0px solid #f00;"></iframe>
+
+</div>
+
+</body>
+
+</html>

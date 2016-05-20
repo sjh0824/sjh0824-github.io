@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery 鼠标悬浮3D特效 | jQuery特效|手机微信网站特效| 网页特效库</title>
+	<meta name="keywords" content="SVG特效, 手机微信网站特效, css3动画, html5特效, 网页特效" />
+	<meta name="description" content="网页特效库-专注于HTML5、CSS3、js、jQuery、手机移动端等网页特效的手机与分享。特效库始终坚持：无会员、无积分、无限制的“三无原则”，所有的资源都免费提供广大童鞋下载学习和使用。" />
+	<link rel="stylesheet" href="dist/style.css">
+	<style>body{font-family: "microsoft yahei";}</style>
+</head>
+<body>
+	<div class="site-content">
+		<div class="columns">
+			<div class="column">
+				<h2 class="section-title">Demo 1</h2>
+
+				
+				<div class="project-list">
+					<div class="project">
+						<div class="project__card">
+							<video class="project__image" src="video/fun.mp4" width=600px height=400px>
+								<source src="video/fun.mp4"/>
+								<source src="video/star.mp4"/>
+								<source src="video/miss.mp4"/>
+							</video>
+							<!--<a href="" class="project__image"><img src="400.jpg" width=600 height=400 alt=""></a>-->
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="column">
+				<h2 class="section-title">Demo 2</h2>
+				
+				<div class="movie">
+					<div class="movie__card">
+						<div class="layer-1"></div>
+						<div class="layer-2"></div>
+						<div class="layer-3"></div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div style="width: 220px; height: 150px; position: fixed; z-index: 1000; right: 0px;top:0px; background: #fff;">
+			<script type="text/javascript">
+			    var cpro_id = "u2586467";
+			</script>
+			<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+		</div>
+		
+
+
+	</div>
+
+	<script src="http://www.5iweb.com.cn/statics/js/jquery.1.7.1.min.js"></script>
+	<script src="dist/js/jquery.hover3d.js" ></script>
+
+	<script>
+		$(document).ready(function(){
+			$(".project").hover3d({
+				selector: ".project__card",
+				shine: false,
+			});
+			$(".movie").hover3d({
+				selector: ".movie__card",
+				shine: true,
+				sensitivity: 20,
+			});
+		});
+
+	</script>
+</body>
+</html>
