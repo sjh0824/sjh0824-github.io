@@ -836,9 +836,7 @@ section > span:nth-child(6) {
     .controls .timer {
         display: none;
     }
-     .button {
-        display: none;
-    }
+   
 }
 
 

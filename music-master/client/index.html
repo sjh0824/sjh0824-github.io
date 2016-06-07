@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Itcast Music Player</title>
+  <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
+  <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <!-- <base href="/client/index.html"> -->
+  <link href='//fonts.useso.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="page" ng-app="musicApp" ng-controller="AppController as root">
+  <header class="header">
+    <a href="#!/home"><i class="fa fa-expand"></i></a>
+    <h1><i class="fa fa-music"></i> Now Playing</h1>
+    <a href="#!/list"><i class="fa fa-list"></i></a>
+  </header>
+  <section class="main" ng-view></section>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/angular-animate/angular-animate.js"></script>
+  <script src="../node_modules/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script id="home" type="text/ng-template">
+    <img src="assets/img/home.png" alt="">
+  </script>
+  <script id="list" type="text/ng-template">
+    <div class="list">
+      <ol>
+        <li ng-repeat="item in vm.data.songs track by $index" ng-click="root.actions.go('/item/' + $index)">
+          <span class="num">{{ ('000' + ($index + 1)).slice(-3) }}</span>
+          <div class="info">
+            <h3 class="title">{{ item.title }}</h3>
+            <span class="artist">{{ item.artist }}</span>
+          </div>
+          <!-- <span class="duration">04:50</span> -->
+          <div class="photo"><img ng-src="{{ root.data.server_root }}artists/{{ item.artist }}.jpg" alt=""></div>
+        </li>
+      </ol>
+    </div>
+  </script>
+  <script id="player" type="text/ng-template">
+    <div class="player" ng-class="{playing: vm.data.playing}">
+      <div class="disc">
+        <img ng-src="{{ root.data.server_root }}artists/{{ vm.data.artist }}.jpg" style="transform:rotate({{vm.data.current/vm.data.duration*360*2}}deg)">
+        <span class="duration">{{ vm.data.remain }}</span>
+      </div>
+      <h2 class="title">{{ vm.data.title }}</h2>
+      <h3 class="artist">{{ vm.data.artist }}</h3>
+      <div class="lyric">
+        <p class="previous">人如天上的明月是不可拥有</p>
+        <p class="current">情如曲过只遗留无可挽救再分别</p>
+        <p class="next">为何只是失望填密我的空虚</p>
+      </div>
+      <input type="range" value="0" min="0" max="{{ vm.data.duration }}" ng-model="vm.data.current" ng-change="vm.actions.progress()">
+      <div class="controls">
+        <button><i class="fa fa-retweet"></i></button>
+        <button class="active"><i class="fa fa-backward"></i></button>
+        <button class="active" ng-click="vm.actions.play()"><i class="fa" ng-class="{'fa-play': !vm.data.playing, 'fa-pause': vm.data.playing}"></i></button>
+        <button class="active"><i class="fa fa-forward"></i></button>
+        <button class="active"><i class="fa fa-random"></i></button>
+      </div>
+    </div>
+  </script>
+</body>
+
+</html>

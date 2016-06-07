@@ -1,0 +1,33 @@
+{
+  "name": "music",
+  "version": "1.0.0",
+  "description": "a music player by express &amp; angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon app.js",
+    "client": "browser-sync start --server --files \"**/*.html, **/*.css, **/*.js\" --no-notify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zce/music.git"
+  },
+  "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zce/music/issues"
+  },
+  "homepage": "https://github.com/zce/music#readme",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-animate": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "angular-sanitize": "^1.5.5",
+    "express": "^4.13.4",
+    "font-awesome": "^4.6.3",
+    "jsmediatags": "^3.2.1",
+    "normalize.css": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}
